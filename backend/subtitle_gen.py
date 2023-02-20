@@ -1,18 +1,16 @@
 import time
 import subprocess
-from typing import Iterator, TextIO
 from flask import Flask, request, send_file
 import whisper
-import helpers
+from helpers import *
 
 
 app = Flask(__name__)
 
-
 @app.route("/upload", methods=["POST"])
 def up():
     resp = request.files['dat']
-    resp.save("/home/d4rk/projects/mini_project_23/subtitleGen/viaud")
+    resp.save("/home/d4rk/projects/mini_project_23/subtitleGen/backend/download/viaud")
     return "done"
 
 
@@ -21,9 +19,9 @@ def subGen():
     conv = subprocess.call(["ffmpeg", "-i", "download/viaud", "-f", "mp3", "download/audio.mp3", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
     if conv == 0:
         model = whisper.load_model("base")
-        result = model.transcribe("audio.mp3", fp16=False)
+        result = model.transcribe("download/audio.mp3", fp16=False)
     else:
-        print("couldn't convert")
+        return("couldn't convert")
 
     with open('download/subtitle.srt', 'w', encoding="utf-8") as srt:
                 write_srt(result["segments"], file=srt, line_length=0)
