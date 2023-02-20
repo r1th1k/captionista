@@ -1,0 +1,26 @@
+name: captionista
+description: A new Flutter project.
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies: 
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  file_picker: ^5.2.5
+  dio: ^5.0.0
+  lottie: ^2.2.0
+  permission_handler: ^10.2.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - animation/

@@ -1,0 +1,40 @@
+1. get the file 
+2. if it is audio goto step 4 else perform next step
+3. convert the video to audio
+4. convert the audio to text
+5. process the text add timestamps
+6. create srt
+
+INVOLVES
+========
+1. AUDIO PROCESSING : noise removal
+2. NATURAL LANGUAGE PROCESSING : convert the audio to text(readable)
+3. TIME ALIGNMENT : tokenize the text
+4. SUBTITLE GENERATION
+
+TODO
+====
+# captionista
+
+[+] choose video/audio button
+    onclick 
+        * select video or audio
+        * show preview/thumbnail
+                + either display name and icon of choosen media
+                - display a thumbnail
+        * show generate button
+
+[+] generate button
+    onclick
+        * upload the video to server
+            + post method dio
+        * call the python function
+            + flask
+            + dio get method 
+        * wait till the program executes
+            + dio get method
+
+[+] download button
+    onclick
+        * download srt or vtt to mobile
+            + dio download method
